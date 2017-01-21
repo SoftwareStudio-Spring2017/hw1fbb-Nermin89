@@ -6,18 +6,17 @@ import java.io.*;
 public class FooBarBaz {
 
 	static int number;
-	static String theRegex="[0-9]";
-	static int flag=0; // a flag to print out the suitable message to the user 
-	static FileWriter	fwriter;
+	static String theRegex = "[0-9]";
+	static int flag = 0; // a flag to print out the suitable message to the user 
+	static FileWriter fwriter;
 	static BufferedWriter bwriter;
 	static Boolean flagstop = false;
 	static File FileName;
-	static int flagFirstRun=0;
+	static int flagFirstRun = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		UserInput();
-		
+		UserInput();	
 	}
 	
 	public static void UserInput()
@@ -28,7 +27,7 @@ public class FooBarBaz {
 		}
 		else 
 		{ 
-		System.out.println('\n'+"Two Options:" +'\n'+ "1.Enter a Number To Count Up To, Make sure it is from 1 to 110"+'\n'+"2. Type the word \"Stop\" to stop counting and print the result"); 
+			System.out.println('\n'+"Two Options:" +'\n'+ "1.Enter a Number To Count Up To, Make sure it is from 1 to 110"+'\n'+"2. Type the word \"Stop\" to stop counting and print the result"); 
 		}
 		
 		Scanner scanner = new Scanner(System.in);
@@ -49,7 +48,7 @@ public class FooBarBaz {
 			{
 				number = Integer.valueOf(word); // converting the string input to Integer
 				
-				if (number <=110 && number >0) // handling edge case of Zero or less.
+				if (number <= 110 && number > 0) // handling edge case of Zero or less.
 				{ 
 					PrintFooBarGame();
 					UserInput();
@@ -75,7 +74,7 @@ public class FooBarBaz {
 	{
 		 FileName = new File ("foobarbaz.txt");
 		 
-		try {
+	try {
 			
 			if (flagFirstRun==0)
 			{
@@ -113,13 +112,14 @@ public class FooBarBaz {
 					bwriter.write("Baz");
 					myFlag = true;
 				} 
-				if(myFlag==false)
+				
+				if(myFlag)
 				{
-					bwriter.write(String.valueOf(i)); // because the BufferedWriter print strings only
 					bwriter.newLine();
 				}
 				else 
 				{
+					bwriter.write(String.valueOf(i)); // because the BufferedWriter print strings only
 					bwriter.newLine();
 				}
 			}
@@ -129,7 +129,7 @@ public class FooBarBaz {
 				bwriter.close();
 			}
 			
-			if (fwriter!=null )
+			if (fwriter!=null)
 			{
 				fwriter.close();
 			}
@@ -140,7 +140,5 @@ public class FooBarBaz {
 			e.printStackTrace();
 		}
 		
-		
-	
 	}
 }
