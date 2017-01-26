@@ -23,11 +23,11 @@ public class FooBarBaz {
 	{
 		if (flag==0)
 		{
-			System.out.println("Enter a Number To Count Up To, Make sure it is from 1 to 110");	
+			System.out.println("Enter a Number To Count Up To");	
 		}
 		else 
 		{ 
-			System.out.println('\n'+"Two Options:" +'\n'+ "1.Enter a Number To Count Up To, Make sure it is from 1 to 110"+'\n'+"2. Type the word \"Stop\" to stop counting and print the result"); 
+			System.out.println('\n'+"Two Options:" +'\n'+ "1.Enter a Number To Count Up To"+'\n'+"2. Type the word \"Stop\" to stop counting and print the result"); 
 		}
 		
 		Scanner scanner = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class FooBarBaz {
 			{
 				number = Integer.valueOf(word); // converting the string input to Integer
 				
-				if (number <= 110 && number > 0) // handling edge case of Zero or less.
+				if (number > 0) // handling edge case of Zero or less.
 				{ 
 					PrintFooBarGame();
 					UserInput();
