@@ -44,6 +44,7 @@ public class FooBarBaz {
 			Pattern ptr = Pattern.compile(theRegex);
 			Matcher regexmatcher = ptr.matcher(word);
 			// Created the Regex to make sure that the input is only Integer.	
+			
 			if (regexmatcher.find())
 			{
 				number = Integer.valueOf(word); // converting the string input to Integer
@@ -56,7 +57,7 @@ public class FooBarBaz {
 				else 
 				{
 					InvalidInput();
-					// Prompt the user the enter a number again
+					// Prompt the user to enter a number again
 					UserInput();
 				}
 			} 
