@@ -32,12 +32,14 @@ public class FooBarBaz {
 		
 		Scanner scanner = new Scanner(System.in);
 		String word = scanner.nextLine();
-		
-		if ( word.equalsIgnoreCase("stop")) // no matter how the user write it with upper or lower or even a mix of both
-		{
-			flagstop =true;
-			System.out.println("Stopped");
-		}
+
+        if (word.equalsIgnoreCase("stop")) // no matter how the user write it
+                                           // with upper or lower or even a mix
+                                           // of both
+        {
+            flagstop = true;
+            System.out.println("Stopped");
+        }
 		else 
 		{
 			flag++; 
