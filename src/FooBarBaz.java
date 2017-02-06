@@ -52,7 +52,13 @@ public class FooBarBaz {
 
                 if (number > 0) // handling edge case of Zero or less.
                 {
-                    printFooBarGame(number);
+                    try {
+                        printFooBarGame(number);
+                    }
+                    catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                    
                 }
                 else {
@@ -77,7 +83,7 @@ public class FooBarBaz {
         System.out.println("Invalid Input, Please Enter Only Integers");
     }
 
-    public static void printFooBarGame(int number) {
+    public static void printFooBarGame(int number) throws IOException {
 
         FileName = new File("foobarbaz.txt");
 
@@ -123,20 +129,28 @@ public class FooBarBaz {
                     bwriter.newLine();
                 }
             }
+            
+          
+            
+            
 
-            if (bwriter != null) {
-                bwriter.close();
-            }
-
-            if (fwriter != null) {
-                fwriter.close();
-            }
+           
 
         }
         catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        finally {
+            if (bwriter != null) {
+                bwriter.close();    
+            }
+            
+            if (fwriter != null) {
+                fwriter.close();
+            }
+        }
         userInput();
+     
     }
 }
