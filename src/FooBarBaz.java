@@ -5,7 +5,7 @@ import java.io.*;
 
 public class FooBarBaz {
 
-    static String theRegex = "\\d[0-9]";
+    static String theRegex = "\\d[0-9]*";
     static int flag = 0; // a flag to print out the suitable message to the user
     static FileWriter fwriter;
     static BufferedWriter bwriter;
