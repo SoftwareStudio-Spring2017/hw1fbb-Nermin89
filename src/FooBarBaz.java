@@ -6,7 +6,7 @@ import java.io.*;
 public class FooBarBaz {
 
 	static int number;
-	static String theRegex = "[0-9]";
+	static String theRegex = "\\d[0-9]";
 	static int flag = 0; // a flag to print out the suitable message to the user 
 	static FileWriter fwriter;
 	static BufferedWriter bwriter;
@@ -62,15 +62,16 @@ public class FooBarBaz {
 					// Prompt the user to enter a number again
 					UserInput();
 				}
-			} 
-			else
-				InvalidInput();
+			}
+            else {
+                InvalidInput();
+            }
 			}
 		}
 	
 	private static void InvalidInput()
 	{
-		System.out.println("Invalid Input, Please Enter Only Integers, And Only between 1 & 110");
+		System.out.println("Invalid Input, Please Enter Only Integers");
 	}
 	
 	public static void PrintFooBarGame()
