@@ -86,11 +86,11 @@ public class FooBarBaz {
             if (firstRun == 0) {
                 if (FileName.exists()) {
                     FileName.delete();
-                    fwriter = new FileWriter(FileName, false);
-                    bwriter = new BufferedWriter(fwriter);
                 }
-
+                fwriter = new FileWriter(FileName, false);
+                bwriter = new BufferedWriter(fwriter);
                 firstRun++;
+
             }
             else {
                 fwriter = new FileWriter(FileName, true);
