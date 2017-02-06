@@ -81,6 +81,7 @@ public class FooBarBaz {
 
     private static void invalidInput() {
         System.out.println("Invalid Input, Please Enter Only Integers");
+        userInput();
     }
 
     public static void printFooBarGame(int number) throws IOException {
