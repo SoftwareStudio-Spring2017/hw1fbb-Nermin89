@@ -5,22 +5,25 @@ import java.io.*;
 
 public class FooBarBaz {
 
-	static int number;
+        
 	static String theRegex = "\\d[0-9]";
 	static int flag = 0; // a flag to print out the suitable message to the user 
 	static FileWriter fwriter;
 	static BufferedWriter bwriter;
-	static Boolean flagstop = false;
+	static Boolean shouldStop = false;
 	static File FileName;
-	static int flagFirstRun = 0;
+	static int firstRun = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		UserInput();	
+	 
+	    userInput();	
 	}
 	
-	public static void UserInput()
+	public static void userInput()
 	{
+	    int number;
+	    
 		if (flag==0)
 		{
 			System.out.println("Enter a Number To Count Up To");	
@@ -37,7 +40,7 @@ public class FooBarBaz {
                                            // with upper or lower or even a mix
                                            // of both
         {
-            flagstop = true;
+            shouldStop = true;
             System.out.println("Stopped");
         }
 		else 
@@ -53,34 +56,35 @@ public class FooBarBaz {
 				
 				if (number > 0) // handling edge case of Zero or less.
 				{ 
-					PrintFooBarGame();
-					UserInput();
+					printFooBarGame(number);
+					userInput();
 				}	
 				else 
 				{
-					InvalidInput();
+					invalidInput();
 					// Prompt the user to enter a number again
-					UserInput();
+					userInput();
 				}
 			}
             else {
-                InvalidInput();
+                invalidInput();
             }
 			}
 		}
 	
-	private static void InvalidInput()
+	private static void invalidInput()
 	{
 		System.out.println("Invalid Input, Please Enter Only Integers");
 	}
 	
-	public static void PrintFooBarGame()
+	public static void printFooBarGame(int number)
 	{
+	    
 		 FileName = new File ("foobarbaz.txt");
 		 
 	try {
 			
-			if (flagFirstRun==0)
+			if (firstRun==0)
 			{
 				if (FileName.exists())
 				{
@@ -89,7 +93,7 @@ public class FooBarBaz {
 					bwriter = new BufferedWriter(fwriter);	
 				}
 				
-				flagFirstRun++;
+				firstRun++;
 			}
 			else
 			{								
