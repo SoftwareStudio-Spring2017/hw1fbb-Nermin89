@@ -15,7 +15,13 @@ public class FooBarBaz {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
+        FooBarBaz fooBarBaz = new FooBarBaz();
+        fooBarBaz.run();
+       
+    }
 
+    private void run() {
+        // TODO Auto-generated method stub
         userInput();
     }
 
@@ -42,34 +48,42 @@ public class FooBarBaz {
         }
         else {
             flag++;
-            Pattern ptr = Pattern.compile(theRegex);
-            Matcher regexmatcher = ptr.matcher(word);
-            // Created the Regex to make sure that the input is only Integer.
+            isValid(word);
+        }
+    }
 
-            if (regexmatcher.find()) {
-                number = Integer.valueOf(word); // converting the string input
-                                                // to Integer
+    private static boolean isValid(String word) {
+        int number;
+        Pattern ptr = Pattern.compile(theRegex);
+        Matcher regexmatcher = ptr.matcher(word);
+        // Created the Regex to make sure that the input is only Integer.
 
-                if (number > 0) // handling edge case of Zero or less.
-                {
-                    try {
-                        printFooBarGame(number);
-                    }
-                    catch (IOException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                   
+        if (regexmatcher.find()) {
+            number = Integer.valueOf(word); // converting the string input
+                                            // to Integer
+
+            if (number > 0) // handling edge case of Zero or less.
+            {
+                try {
+                    printFooBarGame(number);
                 }
-                else {
-                    invalidInput();
-                    // Prompt the user to enter a number again
-                    //userInput();
+                catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
+               
             }
             else {
                 invalidInput();
+                return false;
+                // Prompt the user to enter a number again
+                //userInput();
             }
+            return true;
+        }
+        else {
+            invalidInput();
+            return false;
         }
     }
 
@@ -107,13 +121,10 @@ public class FooBarBaz {
             for (int i = 1; i <= number; i++) {
                 boolean myFlag = false;
 
-                if (i % 3 == 0) {
-                    bwriter.write("Foo");
-                    myFlag = true;
-                }
-                if (i % 5 == 0) {
+//                myFlag = isDivisableByThree(i, myFlag);
+                if (isDivisableByFive(i)) 
+                {
                     bwriter.write("Bar");
-                    myFlag = true;
                 }
                 if (i % 7 == 0) {
                     bwriter.write("Baz");
@@ -153,5 +164,24 @@ public class FooBarBaz {
         }
         userInput();
      
+    }
+
+    protected static boolean isDivisableByFive(int i)
+            throws IOException {
+        boolean myFlag = false;
+        if (i % 5 == 0) {
+            
+            myFlag = true;
+        }
+        return myFlag;
+    }
+
+    protected boolean isDivisableByThree(int i, boolean myFlag)
+            throws IOException {
+        if (i % 3 == 0) {
+            bwriter.write("Foo");
+            myFlag = true;
+        }
+        return myFlag;
     }
 }
