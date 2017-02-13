@@ -120,11 +120,15 @@ public class FooBarBaz {
 
             for (int i = 1; i <= number; i++) {
                 boolean myFlag = false;
-
+              
 //                myFlag = isDivisableByThree(i, myFlag);
                 if (isDivisableByFive(i)) 
                 {
                     bwriter.write("Bar");
+                }
+                if (isDivisableByThree(i)) 
+                {
+                    bwriter.write("Foo");
                 }
                 if (i % 7 == 0) {
                     bwriter.write("Baz");
@@ -176,10 +180,11 @@ public class FooBarBaz {
         return myFlag;
     }
 
-    protected boolean isDivisableByThree(int i, boolean myFlag)
+    protected static boolean isDivisableByThree(int i)
             throws IOException {
+        boolean myFlag = false;
         if (i % 3 == 0) {
-            bwriter.write("Foo");
+           
             myFlag = true;
         }
         return myFlag;
